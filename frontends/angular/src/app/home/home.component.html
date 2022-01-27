@@ -1,0 +1,19 @@
+<a
+  *ngIf="!isIdentified"
+  href="https://metamask.io"
+  class="btn btn-black btn-link"
+  target="_blank"
+>
+  Please install metamask wallet to use this app
+</a>
+<button
+  *ngIf="isIdentified && !isConnected"
+  class="btn btn-black"
+  (click)="connectMetamask()"
+>
+  Connect using Metamask
+</button>
+<ng-container *ngIf="isConnected">
+  <a class="btn btn-black btn-link" href="/create-nft"> Create new NFT </a>
+  <app-show-nfts></app-show-nfts>
+</ng-container>
