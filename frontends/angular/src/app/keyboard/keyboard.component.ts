@@ -3,7 +3,7 @@ import { Component, Input, OnInit, SimpleChanges } from '@angular/core';
 @Component({
   selector: 'app-keyboard',
   templateUrl: './keyboard.component.html',
-  styleUrls: ['./keyboard.component.css'],
+  styleUrls: [],
 })
 export class KeyboardComponent implements OnInit {
   @Input() kind: number = 0;
@@ -11,11 +11,12 @@ export class KeyboardComponent implements OnInit {
   @Input() filter: string = '';
   @Input() owner: string = '';
   @Input() preview: boolean = false;
+  @Input() currentOwner: string = '';
 
   public alt: string = '';
   public imagePath: string = '';
   public style: string = '';
-  public connectedAccount: string = <string>localStorage.getItem('metamask');
+  public connectedAccount: string = this.currentOwner;
 
   constructor() {}
 
@@ -34,6 +35,8 @@ ${this.filter}`
         : ''
     }`;
     this.style = this.filter;
+
+    console.log(this.kind, this.type, this.filter, this.connectedAccount);
   }
 
   ngOnChanges(changes: SimpleChanges) {
@@ -56,10 +59,5 @@ ${this.filter}`
       2: 'eighty-percent',
       3: 'iso-105',
     }[kind];
-  }
-
-  addressesEqual(addr1: string, addr2: string) {
-    if (!addr1 || !addr2) return false;
-    return addr1.toUpperCase() === addr2.toUpperCase();
   }
 }

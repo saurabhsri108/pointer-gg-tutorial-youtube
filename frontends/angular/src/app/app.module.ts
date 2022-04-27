@@ -12,7 +12,14 @@ import { KeyboardComponent } from './keyboard/keyboard.component';
 import { KeyboardPipe } from './keyboard/keyboard.pipe';
 
 @NgModule({
-  declarations: [AppComponent, CreateNftComponent, ShowNftsComponent, HomeComponent, KeyboardComponent, KeyboardPipe],
+  declarations: [
+    AppComponent,
+    CreateNftComponent,
+    ShowNftsComponent,
+    HomeComponent,
+    KeyboardComponent,
+    KeyboardPipe,
+  ],
   imports: [
     BrowserModule,
     AppRoutingModule,

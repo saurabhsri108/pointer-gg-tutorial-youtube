@@ -9,16 +9,10 @@
   />
 </div>
 <span *ngIf="!preview">
-  <button
-    *ngIf="!(owner | addressesEqual: connectedAccount)"
-    class="btn btn-tip"
-  >
+  <button *ngIf="!(owner | addressesEqual: currentOwner)" class="btn btn-tip">
     Tip
   </button>
-  <button
-    *ngIf="owner | addressesEqual: connectedAccount"
-    class="btn btn-no-tip"
-  >
+  <button *ngIf="owner | addressesEqual: currentOwner" class="btn btn-no-tip">
     You own it!
   </button>
 </span>

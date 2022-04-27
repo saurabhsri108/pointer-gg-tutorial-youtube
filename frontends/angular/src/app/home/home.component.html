@@ -14,6 +14,11 @@
   Connect using Metamask
 </button>
 <ng-container *ngIf="isConnected">
-  <a class="btn btn-black btn-link" href="/create-nft"> Create new NFT </a>
-  <app-show-nfts></app-show-nfts>
+  <a class="btn btn-black btn-link" routerLink="/create-nft">
+    Create new NFT
+  </a>
+  <app-show-nfts
+    [ethereum]="ethereum"
+    [currentOwner]="ownerAddress"
+  ></app-show-nfts>
 </ng-container>

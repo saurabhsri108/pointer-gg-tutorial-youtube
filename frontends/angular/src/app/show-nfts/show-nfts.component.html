@@ -1,10 +1,11 @@
 <section class="nfts">
-  <div class="nft" *ngFor="let nft of (nfts$ | async)?.data">
+  <div class="nft" *ngFor="let nft of nfts">
     <app-keyboard
-      [kind]="nft.keyboardKind"
-      [type]="nft.keyboardType | uppercase"
-      [filter]="nft.keyboardFilter"
-      [owner]="nft.ownerAddress"
+      [kind]="nft[0]"
+      [type]="nft[1] ? ('pbt' | uppercase) : ('abs' | uppercase)"
+      [filter]="nft[2]"
+      [owner]="nft[3]"
+      [currentOwner]="currentOwner"
     ></app-keyboard>
   </div>
 </section>
