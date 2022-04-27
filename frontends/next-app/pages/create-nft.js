@@ -4,20 +4,20 @@ import Keyboard from './components/Keyboard';
 
 const API_URL = 'http://localhost:5000';
 
-export function CreateNFT() {
+export default function CreateNFT() {
   const [keyboard, setKeyboard] = useState({
     keyboardKind: 0,
     keyboardType: 'pbt',
     keyboardFilter: 'none',
-    ownerAddress: localStorage.getItem('metamask'),
+    ownerAddress: '',
   });
-  console.log(keyboard);
-  // useEffect(() => {
-  //   setKeyboard({
-  //     ...keyboard,
-  //     ownerAddress: localStorage.getItem('metamask'),
-  //   });
-  // }, []);
+
+  useEffect(() => {
+    setKeyboard({
+      ...keyboard,
+      ownerAddress: localStorage.getItem('metamask'),
+    });
+  }, []);
 
   function change(event) {
     setKeyboard({ ...keyboard, [event.target.name]: event.target.value });
@@ -44,7 +44,7 @@ export function CreateNFT() {
   }
 
   return (
-    <>
+    <main className="home">
       <form className="form" onSubmit={onSubmit}>
         <div className="form-group">
           <label htmlFor="kind">Keyboard Kind</label>
@@ -96,6 +96,6 @@ export function CreateNFT() {
       <section className="preview">
         <Keyboard preview={true} keyboard={keyboard} />
       </section>
-    </>
+    </main>
   );
 }

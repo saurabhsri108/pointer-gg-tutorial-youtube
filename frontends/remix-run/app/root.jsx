@@ -10,7 +10,11 @@ import {
 import styles from 'public/assets/style.css';
 
 export function meta() {
-  return { title: 'Keyboard NFT Minters' };
+  return {
+    charset: 'utf-8',
+    title: 'Keyboard NFT Minters',
+    viewport: 'width=device-width,initial-scale=1',
+  };
 }
 
 export function links() {
@@ -21,8 +25,6 @@ export default function App() {
   return (
     <html lang="en">
       <head>
-        <meta charSet="utf-8" />
-        <meta name="viewport" content="width=device-width,initial-scale=1" />
         <Meta />
         <Links />
       </head>
