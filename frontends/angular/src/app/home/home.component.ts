@@ -9,6 +9,7 @@ export class HomeComponent implements OnInit {
   readonly METAMASK_KEY: string = 'metamask';
 
   public isIdentified: boolean = false;
+  public ethereum: any;
   public isConnected: boolean = false;
   public ownerAddress: string = '';
   constructor() {}
@@ -17,13 +18,17 @@ export class HomeComponent implements OnInit {
     if (this.checkIfMetamaskInstalled()) {
       this.isIdentified = true;
 
-      if (this.checkIfMetamaskConnected()) {
-        this.connected();
+      // if (this.checkIfMetamaskConnected()) {
+      //   this.connected();
+      // }
+      if (this.ethereum) {
+        this.connectMetamask();
       }
     }
   }
   private checkIfMetamaskInstalled(): boolean {
     if (typeof (window as any).ethereum !== 'undefined') {
+      this.ethereum = (window as any).ethereum;
       return true;
     }
     return false;
@@ -50,7 +55,7 @@ export class HomeComponent implements OnInit {
     });
     const account = accounts[0];
     this.ownerAddress = account;
-    this.storeMetamask();
+    // this.storeMetamask();
     this.connected();
   }
 }

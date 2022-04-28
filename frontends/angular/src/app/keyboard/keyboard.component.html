@@ -1,24 +1,12 @@
 <h2 *ngIf="preview">Preview</h2>
 <div class="borders">
-  <img
-    [height]="230"
-    [width]="360"
-    [class]="filter"
-    [src]="imagePath"
-    [alt]="alt"
-  />
+	<img [height]="230" [width]="360" [class]="filter" [src]="imagePath" [alt]="alt" />
 </div>
-<span *ngIf="!preview">
-  <button
-    *ngIf="!(owner | addressesEqual: connectedAccount)"
-    class="btn btn-tip"
-  >
-    Tip
-  </button>
-  <button
-    *ngIf="owner | addressesEqual: connectedAccount"
-    class="btn btn-no-tip"
-  >
-    You own it!
-  </button>
+<span *ngIf="!preview && !isTipping">
+	<button *ngIf="!(owner | addressesEqual: currentOwner)" class="btn btn-tip" (click)="tip()">Tip</button>
+	<button *ngIf="owner | addressesEqual: currentOwner" class="btn btn-no-tip">You own it!</button>
+</span>
+
+<span *ngIf="!preview && isTipping">
+	<button *ngIf="!(owner | addressesEqual: currentOwner)" class="btn btn-tip">Tipping 0.1 ETH...</button>
 </span>
