@@ -10,23 +10,12 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { HomeComponent } from './home/home.component';
 import { KeyboardComponent } from './keyboard/keyboard.component';
 import { KeyboardPipe } from './keyboard/keyboard.pipe';
+import { CommonModule } from '@angular/common';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    CreateNftComponent,
-    ShowNftsComponent,
-    HomeComponent,
-    KeyboardComponent,
-    KeyboardPipe,
-  ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    HttpClientModule,
-    ReactiveFormsModule,
-  ],
-  providers: [],
-  bootstrap: [AppComponent],
+	declarations: [AppComponent, CreateNftComponent, ShowNftsComponent, HomeComponent, KeyboardComponent, KeyboardPipe],
+	imports: [BrowserModule, AppRoutingModule, HttpClientModule, ReactiveFormsModule, CommonModule],
+	providers: [],
+	bootstrap: [AppComponent],
 })
 export class AppModule {}

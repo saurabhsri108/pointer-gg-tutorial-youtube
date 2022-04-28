@@ -1,39 +1,40 @@
 <form class="form" [formGroup]="form" (submit)="onSubmit()">
-  <div class="form-group">
-    <label for="kind">Keyboard Kind</label>
-    <select id="kind" formControlName="keyboardKind">
-      <option value="0">60%</option>
-      <option value="1">75%</option>
-      <option value="2">80%</option>
-      <option value="3">ISO-105</option>
-    </select>
-  </div>
-  <div class="form-group">
-    <label for="type">Keyboard Type</label>
-    <select id="type" formControlName="keyboardType">
-      <option value="abs">ABS</option>
-      <option value="pbt">PBT</option>
-    </select>
-  </div>
-  <div class="form-group">
-    <label for="filter">Keyboard Filter</label>
-    <select id="filter" formControlName="keyboardFilter">
-      <option value="none">None</option>
-      <option value="sepia">Sepia</option>
-      <option value="grayscale">Grayscale</option>
-      <option value="invert">Invert</option>
-      <option value="hue-rotate-90">Hue Rotate (90°)</option>
-      <option value="hue-rotate-180">Hue Rotate (180°)</option>
-    </select>
-  </div>
-  <button type="submit" class="btn btn-black">Mint NFT</button>
+	<div class="form-group">
+		<label for="kind">Keyboard Kind</label>
+		<select id="kind" formControlName="keyboardKind">
+			<option value="0">60%</option>
+			<option value="1">75%</option>
+			<option value="2">80%</option>
+			<option value="3">ISO-105</option>
+		</select>
+	</div>
+	<div class="form-group">
+		<label for="type">Keyboard Type</label>
+		<select id="type" formControlName="keyboardType">
+			<option value="abs">ABS</option>
+			<option value="pbt">PBT</option>
+		</select>
+	</div>
+	<div class="form-group">
+		<label for="filter">Keyboard Filter</label>
+		<select id="filter" formControlName="keyboardFilter">
+			<option value="none">None</option>
+			<option value="sepia">Sepia</option>
+			<option value="grayscale">Grayscale</option>
+			<option value="invert">Invert</option>
+			<option value="hue-rotate-90">Hue Rotate (90°)</option>
+			<option value="hue-rotate-180">Hue Rotate (180°)</option>
+		</select>
+	</div>
+	<button type="submit" class="btn btn-black" *ngIf="!isMinting">Mint NFT</button>
+	<button type="submit" class="btn btn-black" *ngIf="isMinting">Minting new NFT...</button>
 </form>
 
 <section class="preview">
-  <app-keyboard
-    [kind]="form.get('keyboardKind').value"
-    [type]="form.get('keyboardType').value | uppercase"
-    [filter]="form.get('keyboardFilter').value"
-    [preview]="true"
-  ></app-keyboard>
+	<app-keyboard
+		[kind]="form.get('keyboardKind').value"
+		[type]="form.get('keyboardType').value | uppercase"
+		[filter]="form.get('keyboardFilter').value"
+		[preview]="true"
+	></app-keyboard>
 </section>
